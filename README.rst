@@ -9,7 +9,7 @@ About This Plugin
 
 This plugin inserts seven dashes and two newlines when you press `Ctrl-Shift--`.
 
-This plugin is part of a larger suite of plugins the comprise features and
+This plugin is part of a larger suite of plugins that comprise features and
 mappings for maintaining notes files according to the `reSTfold` `method`.
 
 Installation

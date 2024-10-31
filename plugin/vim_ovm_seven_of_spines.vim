@@ -1,6 +1,6 @@
 " Insert seven dashes and two newlines when you press <Shift-Ctrl-Dash>
 " Author: Landon Bouma <https://tallybark.com/>
-" Online: https://github.com/landonb/vim-ovm-seven-of-spines
+" Project: https://github.com/landonb/vim-ovm-seven-of-spines#🦴
 " License: https://creativecommons.org/publicdomain/zero/1.0/
 "  vim:tw=0:ts=2:sw=2:et:norl:ft=vim
 " Copyright © 2020 Landon Bouma.

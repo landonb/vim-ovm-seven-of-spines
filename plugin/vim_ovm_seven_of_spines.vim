@@ -7,13 +7,18 @@
 
 " ########################################################################
 
-" DEV: Uncomment the 'unlet', then <F9> to reload this file.
-"       https://github.com/landonb/vim-source-reloader
-"  silent! unlet g:loaded_ovm_seven_of_spines
+" GUARD: Press <F9> to reload this plugin (or :source it).
+" - Via: https://github.com/embrace-vim/vim-source-reloader#↩️
+
+if expand("%:p") ==# expand("<sfile>:p")
+  unlet g:loaded_ovm_seven_of_spines
+endif
 
 if exists("g:loaded_ovm_seven_of_spines") || &cp
+
   finish
 endif
+
 let g:loaded_ovm_seven_of_spines = 1
 
 " ########################################################################

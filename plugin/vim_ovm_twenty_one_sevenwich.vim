@@ -7,13 +7,18 @@
 
 " ########################################################################
 
-" DEV: Uncomment the 'unlet', then <F9> to reload this file.
-"       https://github.com/landonb/vim-source-reloader
-"  silent! unlet g:loaded_ovm_twenty_one_sevenwich
+" GUARD: Press <F9> to reload this plugin (or :source it).
+" - Via: https://github.com/embrace-vim/vim-source-reloader#↩️
+
+if expand("%:p") ==# expand("<sfile>:p")
+  unlet g:loaded_ovm_twenty_one_sevenwich
+endif
 
 if exists("g:loaded_ovm_twenty_one_sevenwich") || &cp
+
   finish
 endif
+
 let g:loaded_ovm_twenty_one_sevenwich = 1
 
 " ########################################################################

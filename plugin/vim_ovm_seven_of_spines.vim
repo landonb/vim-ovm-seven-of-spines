@@ -10,11 +10,11 @@
 " GUARD: Press <F9> to reload this plugin (or :source it).
 " - Via: https://github.com/embrace-vim/vim-source-reloader#↩️
 
-if expand("%:p") ==# expand("<sfile>:p")
-  unlet g:loaded_ovm_seven_of_spines
+if expand('%:p') ==# expand('<sfile>:p')
+  unlet! g:loaded_ovm_seven_of_spines
 endif
 
-if exists("g:loaded_ovm_seven_of_spines") || &cp
+if exists('g:loaded_ovm_seven_of_spines') || &cp
 
   finish
 endif

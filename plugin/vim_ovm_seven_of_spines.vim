@@ -5,7 +5,7 @@
 "  vim:tw=0:ts=2:sw=2:et:norl:ft=vim
 " Copyright © 2020 Landon Bouma.
 
-" ########################################################################
+" -------------------------------------------------------------------
 
 " GUARD: Press <F9> to reload this plugin (or :source it).
 " - Via: https://github.com/embrace-vim/vim-source-reloader#↩️
@@ -21,7 +21,7 @@ endif
 
 let g:loaded_ovm_seven_of_spines = 1
 
-" ########################################################################
+" -------------------------------------------------------------------
 
 " This plugin uses a map expression <expr> to insert seven dashes and two
 " newlines when you press <Ctrl-Shift-Dash>, aka <C-S-->, aka <C-_>.
@@ -37,7 +37,7 @@ let g:loaded_ovm_seven_of_spines = 1
 "   commands. But you can fake it with motion *keypresses*
 "   in the inserted text, e.g., <Home> and <End>.
 
-" ########################################################################
+" -------------------------------------------------------------------
 
 function! s:WriteSevenDashesNlNl_N()
   return "\<home>i-------\n\n\<end>"
@@ -47,7 +47,7 @@ function! s:WriteSevenDashesNlNl_I()
   return "\<home>-------\n\n\<end>"
 endfunction
 
-" ########################################################################
+" -------------------------------------------------------------------
 
 function! s:ClearBindingsSevenOfSpines()
   silent! nunmap <C-_>
@@ -64,9 +64,7 @@ function! s:ResetBindingsSevenOfSpines()
   call <SID>SetupBindingsSevenOfSpines()
 endfunction
 
-" ########################################################################
+" -------------------------------------------------------------------
 
 call <SID>ResetBindingsSevenOfSpines()
-
-" ########################################################################
 

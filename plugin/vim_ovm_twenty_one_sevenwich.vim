@@ -36,13 +36,23 @@ endfunction
 " I tried <C-+>... no bananas.
 
 function! s:ClearBindings7217Splitter()
-  silent! nunmap <M-_>
-  silent! iunmap <buffer><expr> <M-_>
+  if has('macunix')
+    silent! nunmap —
+    silent! iunmap <buffer><expr> —
+  else
+    silent! nunmap <M-_>
+    silent! iunmap <buffer><expr> <M-_>
+  endif
 endfunction
 
 function! s:SetupBindings7217Splitter()
-  nnoremap <expr> <M-_> <SID>Write7217Splitter_N()
-  inoremap <expr> <M-_> <SID>Write7217Splitter_I()
+  if has('macunix')
+    nnoremap <expr> — <SID>Write7217Splitter_N()
+    inoremap <expr> — <SID>Write7217Splitter_I()
+  else
+    nnoremap <expr> <M-_> <SID>Write7217Splitter_N()
+    inoremap <expr> <M-_> <SID>Write7217Splitter_I()
+  endif
 endfunction
 
 function! s:ResetBindings7217Splitter()

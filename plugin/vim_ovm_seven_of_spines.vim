@@ -50,13 +50,23 @@ endfunction
 " -------------------------------------------------------------------
 
 function! s:ClearBindingsSevenOfSpines()
-  silent! nunmap <C-_>
-  silent! iunmap <buffer><expr> <C-_>
+  if has('nvim')
+    silent! nunmap <C-->
+    silent! iunmap <buffer><expr> <C-->
+  else
+    silent! nunmap <C-_>
+    silent! iunmap <buffer><expr> <C-_>
+  endif
 endfunction
 
 function! s:SetupBindingsSevenOfSpines()
-  nnoremap <expr> <C-_> <SID>WriteSevenDashesNlNl_N()
-  inoremap <expr> <C-_> <SID>WriteSevenDashesNlNl_I()
+  if has('nvim')
+    nnoremap <expr> <C--> <SID>WriteSevenDashesNlNl_N()
+    inoremap <expr> <C--> <SID>WriteSevenDashesNlNl_I()
+  else
+    nnoremap <expr> <C-_> <SID>WriteSevenDashesNlNl_N()
+    inoremap <expr> <C-_> <SID>WriteSevenDashesNlNl_I()
+  endif
 endfunction
 
 function! s:ResetBindingsSevenOfSpines()

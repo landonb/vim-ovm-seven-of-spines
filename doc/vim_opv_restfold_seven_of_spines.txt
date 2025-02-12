@@ -1,6 +1,6 @@
 *vim_opv_restfold_seven_of_spines.txt*	For Vim version 7.4.	Last change: 2020 Sep 24
 
-One Vimmer's Maps — Insert-Seven-Dashes Mapping~
+One Vimmer's Maps — Insert-Seven-Dashes Mapping 🦴 ~
 
 reSTfold Helper: Insert Seven Dashes	*vim-ovm-seven-of-spines*
 

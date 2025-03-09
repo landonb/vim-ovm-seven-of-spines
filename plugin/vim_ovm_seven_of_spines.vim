@@ -40,10 +40,14 @@ let g:loaded_ovm_seven_of_spines = 1
 " -------------------------------------------------------------------
 
 function! s:WriteSevenDashesNlNl_N()
+  call s:InhibitCompletionMenu()
+
   return "\<home>i-------\n\n\<end>"
 endfunction
 
 function! s:WriteSevenDashesNlNl_I()
+  call s:InhibitCompletionMenu()
+
   return "\<home>-------\n\n\<end>"
 endfunction
 
@@ -72,6 +76,37 @@ endfunction
 function! s:ResetBindingsSevenOfSpines()
   call <SID>ClearBindingsSevenOfSpines()
   call <SID>SetupBindingsSevenOfSpines()
+endfunction
+
+" -------------------------------------------------------------------
+
+" HSTRY/2025-03-05: Hide completion if it pops up after the maps insert text.
+"
+" - Ideally, we'd inhibit the completion menu from popping up
+"   in the first place, but this is the only approach that I
+"   got to work.
+"
+"   - LOPRI: Using a timer feels hacky. Find a better way.
+"
+" - Currently just supports blink.cmp
+"
+" - SAVVY: Using a 0 timeout it too fast. Same with 10, 33, 50.
+"   - 100 timeout works, but it's noticable, a quick blip!
+"   - 66 also works, also sometimes blips, but not as bad.
+"     And sometimes you don't see the completion menu at
+"     all... (ugh, such a terrible solution, ha).
+"
+"   - Adding trailing "\<c-e>" to return string doesn't help,
+"     even though <C-e> mapped to hide completion.
+"
+"   - Nor does toggling it off before the insert, then on
+"     again after a timeout work:
+"
+"       let g:blink_cmp_enabled = 0
+"       call timer_start(200, { -> execute('let g:blink_cmp_enabled = 1', '')})
+
+function! s:InhibitCompletionMenu() abort
+  call timer_start(66, { -> execute('lua pcall(function() require("blink-cmp").hide() end)', '')})
 endfunction
 
 " -------------------------------------------------------------------

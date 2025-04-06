@@ -104,6 +104,13 @@ endfunction
 "
 "       let g:blink_cmp_enabled = 0
 "       call timer_start(200, { -> execute('let g:blink_cmp_enabled = 1', '')})
+"
+"     - CXREF: That global is nvim-lazyb blink.cmp enablement toggle:
+"       ~/.kit/nvim/landonb/nvim-lazyb/lua/plugins/blink-cmp.lua
+"
+"     - MAYBE: Another idea (that I haven't tested yet):
+"       - Try setting g:blink_cmp_enabled = 0, then defer_fn()
+"         inserting "-------", then defer_fn() re-enabling blink.cmp.
 
 function! s:InhibitCompletionMenu() abort
   call timer_start(66, { -> execute('lua pcall(function() require("blink-cmp").hide() end)', '')})

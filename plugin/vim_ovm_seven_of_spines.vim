@@ -65,8 +65,13 @@ endfunction
 
 function! s:SetupBindingsSevenOfSpines()
   if has('nvim')
-    nnoremap <expr> <C--> <SID>WriteSevenDashesNlNl_N()
-    inoremap <expr> <C--> <SID>WriteSevenDashesNlNl_I()
+    if exists('g:neovide')
+      nnoremap <expr> <C--> <SID>WriteSevenDashesNlNl_N()
+      inoremap <expr> <C--> <SID>WriteSevenDashesNlNl_I()
+    else
+      nnoremap <expr> <M--> <SID>WriteSevenDashesNlNl_N()
+      inoremap <expr> <M--> <SID>WriteSevenDashesNlNl_I()
+    endif
   else
     nnoremap <expr> <C-_> <SID>WriteSevenDashesNlNl_N()
     inoremap <expr> <C-_> <SID>WriteSevenDashesNlNl_I()
